@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel - {{ clinic.name }}</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body data-clinic-slug="{{ clinic.slug }}" data-clinic-id="{{ clinic.id }}">
+  <main class="display-shell">
+    <section>
+      <p class="eyebrow">{{ clinic.name }}</p>
+      <h1>Senha chamada</h1>
+      <strong id="calledTicket" class="display-ticket">---</strong>
+      <p id="calledRoom" class="display-room">Aguardando chamada</p>
+    </section>
+    <aside>
+      <h2>Fila</h2>
+      <ul id="waitingList" class="waiting-list"></ul>
+    </aside>
+  </main>
+  <script src="/static/js/display.js"></script>
+</body>
+</html>

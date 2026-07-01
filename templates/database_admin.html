@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Base de dados - {{ clinic.name }}</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body data-clinic-slug="{{ clinic.slug }}" data-clinic-id="{{ clinic.id }}">
+  <main class="shell">
+    <header class="workspace-header">
+      <div>
+        <p class="eyebrow">{{ clinic.name }}</p>
+        <h1>Gestao da base</h1>
+      </div>
+      <a class="link-button" href="/gestao/{{ clinic.slug }}">Atendimento</a>
+    </header>
+
+    <section class="admin-actions">
+      <div>
+        <p class="eyebrow">Fila de hoje</p>
+        <strong id="todayCounter">0 senhas emitidas</strong>
+      </div>
+      <div class="controls-row compact">
+        <button class="segmented active" data-period="today">Hoje</button>
+        <button class="segmented" data-period="all">Todos</button>
+        <button class="danger-button" id="resetTodayButton">Resetar fila de hoje</button>
+        <button class="danger-button outline" id="deleteAllButton">Apagar tudo</button>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <h2>Registros de senhas</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Senha</th>
+              <th>Categoria</th>
+              <th>Status</th>
+              <th>Emitida em</th>
+              <th>Chamada em</th>
+              <th>Sala</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="adminTicketRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="/static/js/database_admin.js"></script>
+</body>
+</html>

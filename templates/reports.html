@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relatorios - {{ clinic.name }}</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body data-clinic-slug="{{ clinic.slug }}">
+  <main class="shell">
+    <header class="workspace-header">
+      <div>
+        <p class="eyebrow">{{ clinic.name }}</p>
+        <h1>Relatorios de emissao</h1>
+      </div>
+      <a class="link-button" href="/gestao/{{ clinic.slug }}">Voltar</a>
+    </header>
+
+    <section class="controls-row">
+      <button class="segmented active" data-period="daily">Dia</button>
+      <button class="segmented" data-period="weekly">Semana</button>
+    </section>
+
+    <section class="table-section">
+      <h2 id="reportTitle">Emissoes do dia</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Categoria</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="reportRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="/static/js/reports.js"></script>
+</body>
+</html>

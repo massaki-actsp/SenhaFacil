@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestao - {{ clinic.name }}</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body data-clinic-slug="{{ clinic.slug }}" data-clinic-id="{{ clinic.id }}">
+  <main class="shell">
+    <header class="workspace-header">
+      <div>
+        <p class="eyebrow">{{ clinic.name }}</p>
+        <h1>Painel de atendimento</h1>
+      </div>
+      <nav class="header-actions" aria-label="Acoes de gestao">
+        <a class="link-button" href="/admin/{{ clinic.slug }}/base">Base de dados</a>
+        <a class="link-button" href="/relatorios/{{ clinic.slug }}">Relatorios</a>
+      </nav>
+    </header>
+
+    <section class="controls-row">
+      <label>
+        Sala
+        <input id="roomInput" value="Consultorio 1">
+      </label>
+      <button class="primary-button" id="nextButton">Chamar proximo</button>
+    </section>
+
+    <section class="table-section">
+      <h2>Fila de hoje</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Senha</th>
+              <th>Categoria</th>
+              <th>Status</th>
+              <th>Posicao</th>
+              <th>Sala</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="ticketRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="/static/js/management.js"></script>
+</body>
+</html>

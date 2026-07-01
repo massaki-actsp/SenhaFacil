@@ -1,0 +1,8 @@
+{
+  "name": "Senha Facil",
+  "short_name": "SenhaFacil",
+  "start_url": "/fila/unidade-centro",
+  "display": "standalone",
+  "background_color": "#f4f7f6",
+  "theme_color": "#0f766e"
+}

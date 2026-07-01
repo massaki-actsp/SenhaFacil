@@ -1,0 +1,383 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  --ink: #172026;
+  --muted: #617179;
+  --line: #d9e2e3;
+  --surface: #ffffff;
+  --page: #f4f7f6;
+  --brand: #0f766e;
+  --brand-dark: #115e59;
+  --alert: #b42318;
+  --accent: #2563eb;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+}
+
+a { color: inherit; }
+
+.shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.landing {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.hero {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.hero h1,
+.workspace-header h1,
+.topbar h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 4rem);
+  letter-spacing: 0;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1.2rem;
+  max-width: 680px;
+}
+
+.quick-links {
+  display: grid;
+  gap: 12px;
+}
+
+.quick-links a,
+.link-button,
+.primary-button,
+.segmented,
+.category-button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  min-height: 44px;
+  text-decoration: none;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.quick-links a,
+.link-button {
+  padding: 14px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-links a:hover,
+.category-button:hover,
+.primary-button:hover {
+  transform: translateY(-1px);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--brand-dark);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: .75rem;
+}
+
+.mobile-shell {
+  min-height: 100vh;
+  width: min(520px, 100%);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.topbar,
+.workspace-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.status-pill,
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: #dff5ef;
+  color: var(--brand-dark);
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.panel,
+.ticket-card,
+.table-section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.panel h2,
+.table-section h2 {
+  margin: 0 0 16px;
+}
+
+.category-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.category-button {
+  min-height: 86px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
+  touch-action: manipulation;
+  user-select: none;
+  width: 100%;
+}
+
+.category-button strong {
+  font-size: 1.15rem;
+}
+
+.category-button span {
+  color: var(--brand);
+  font-weight: 900;
+}
+
+.ticket-card {
+  text-align: center;
+  transition: background .2s ease, color .2s ease;
+}
+
+.ticket-card.called {
+  background: var(--brand);
+  color: white;
+}
+
+.ticket-card.called .eyebrow,
+.ticket-card.called .queue-position {
+  color: white;
+}
+
+.ticket-number {
+  display: block;
+  font-size: clamp(3.8rem, 20vw, 6.5rem);
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.ticket-number.flash-called {
+  animation: ticketCalledFlash .42s ease-in-out 3;
+}
+
+@keyframes ticketCalledFlash {
+  0%, 100% {
+    color: inherit;
+    text-shadow: none;
+  }
+
+  50% {
+    color: #22c55e;
+    text-shadow: 0 0 24px rgba(34, 197, 94, .75);
+  }
+}
+
+.ticket-state,
+.queue-position,
+.room {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.hidden { display: none; }
+
+.controls-row {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.controls-row.compact {
+  margin-bottom: 0;
+}
+
+.admin-actions {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+input {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  font: inherit;
+}
+
+.primary-button {
+  min-height: 44px;
+  padding: 0 18px;
+  background: var(--brand);
+  color: white;
+  border-color: var(--brand);
+  font-weight: 800;
+}
+
+.segmented {
+  padding: 0 18px;
+  font-weight: 800;
+}
+
+.segmented.active {
+  background: var(--ink);
+  color: white;
+}
+
+.danger-button {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--alert);
+  border-radius: 8px;
+  background: var(--alert);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.danger-button.outline {
+  background: var(--surface);
+  color: var(--alert);
+}
+
+.danger-button.small {
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: .85rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.display-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  padding: 44px;
+  background: #071414;
+  color: white;
+}
+
+.display-shell .eyebrow {
+  color: #8ee7dc;
+}
+
+.display-ticket {
+  display: block;
+  font-size: clamp(5rem, 17vw, 14rem);
+  line-height: .9;
+}
+
+.display-room {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin: 20px 0 0;
+}
+
+.waiting-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.waiting-list li {
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .display-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .display-shell {
+    padding: 24px;
+  }
+
+  .topbar,
+  .workspace-header,
+  .admin-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

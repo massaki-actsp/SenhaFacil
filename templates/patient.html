@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <title>Totem Virtual - {{ clinic.name }}</title>
+  <link rel="manifest" href="/static/manifest.webmanifest">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body data-clinic-slug="{{ clinic.slug }}" data-clinic-id="{{ clinic.id }}">
+  <main class="mobile-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">{{ clinic.location_label }}</p>
+        <h1>Retire sua senha</h1>
+      </div>
+      <span class="status-pill" id="connectionStatus">Online</span>
+    </header>
+
+    <section class="panel" id="categoryPanel">
+      <h2>Tipo de atendimento</h2>
+      <div class="category-grid">
+        {% for key, item in categories.items() %}
+        <button class="category-button" data-category="{{ key }}">
+          <strong>{{ item.label }}</strong>
+          <span>{{ item.prefix }}</span>
+        </button>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="ticket-card hidden" id="ticketPanel">
+      <p class="eyebrow">Sua senha digital</p>
+      <strong class="ticket-number" id="ticketCode">---</strong>
+      <p class="ticket-state" id="ticketStatus">Aguardando</p>
+      <p class="queue-position" id="queuePosition"></p>
+      <p class="room" id="roomLabel"></p>
+    </section>
+  </main>
+  <script src="/static/js/patient.js"></script>
+</body>
+</html>
